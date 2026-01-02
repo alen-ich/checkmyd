@@ -1,9 +1,8 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router';
-import { Search, Clock, CheckCircle, XCircle, Image as ImageIcon, Filter } from 'lucide-react';
+import { Search, Clock, CheckCircle, XCircle, Image as ImageIcon } from 'lucide-react';
 import Header from '@/components/layout/Header';
 import Footer from '@/components/layout/Footer';
-import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Badge } from '@/components/ui/badge';
 import { Card, CardContent } from '@/components/ui/card';
