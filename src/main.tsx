@@ -16,6 +16,7 @@ import ForgotPassword from "./pages/ForgotPassword/ForgotPassword";
 import Login from "./pages/Login/Login";
 import RaterView from "./pages/RaterView/RaterView";
 import RaterUploadDetails from "./pages/RaterUploadDetails/RaterUploadDetails";
+import TestPages from "./pages/TestPages/TestPages";
 import "./index.css";
 
 const rootElement = document.getElementById("root");
@@ -27,6 +28,7 @@ if (!rootElement) {
 ReactDOM.createRoot(rootElement).render(
   <BrowserRouter>
     <Routes>
+      <Route path="/test-pages" element={<TestPages />} />
       <Route path="/" element={<SignUp />} />
       <Route path="/login" element={<Login />} />
       <Route path="/signup/submitter" element={<SignUpSubmitter />} />
