@@ -26,7 +26,7 @@ const Header: React.FC<HeaderProps> = ({
   };
 
   return (
-    <header className="bg-[#2a2a2a] px-5 py-4 flex items-center gap-4">
+    <header className="fixed top-0 left-0 right-0 bg-[#2a2a2a] px-5 py-4 flex items-center gap-4 z-50">
       {showBack && (
         <button
           onClick={handleBackClick}
