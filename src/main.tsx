@@ -11,6 +11,7 @@ import SubmitterProfile from "./pages/SubmitterProfile/SubmitterProfile";
 import ViewUploads from "./pages/ViewUploads/ViewUploads";
 import UploadDetails from "./pages/UploadDetails/UploadDetails";
 import Notifications from "./pages/Notifications/Notifications";
+import ProfileSettings from "./pages/ProfileSettings/ProfileSettings";
 import "./index.css";
 
 const rootElement = document.getElementById("root");
@@ -33,6 +34,7 @@ ReactDOM.createRoot(rootElement).render(
       <Route path="/view-uploads" element={<ViewUploads />} />
       <Route path="/upload-details/:id" element={<UploadDetails />} />
       <Route path="/notifications" element={<Notifications />} />
+      <Route path="/profile-settings" element={<ProfileSettings />} />
     </Routes>
   </BrowserRouter>,
 );
