@@ -25,7 +25,7 @@ const Footer: React.FC = () => {
   };
 
   return (
-    <footer className="bg-[#2a2a2a] border-t border-[#3a3a3a] px-4 py-3">
+    <footer className="fixed bottom-0 left-0 right-0 bg-[#2a2a2a] border-t border-[#3a3a3a] px-4 py-3 z-50">
       <nav className="flex items-center justify-around">
         {footerItems.map((item) => {
           const isActive = location.pathname === item.path;

@@ -106,7 +106,7 @@ const Raters: React.FC = () => {
         onFilterClick={() => console.log('Filter clicked')}
       />
 
-      <main className="flex-1 overflow-y-auto pb-20">
+      <main className="flex-1 overflow-y-auto pb-24">
         <div className="px-5 py-4 flex flex-col gap-4">
           {/* Search Bar */}
           <div className="relative">
