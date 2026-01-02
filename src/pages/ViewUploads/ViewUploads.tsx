@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router';
 import { Search, Clock, CheckCircle, XCircle, Image as ImageIcon, Filter } from 'lucide-react';
 import Header from '@/components/layout/Header';
 import Footer from '@/components/layout/Footer';
@@ -95,10 +96,15 @@ const statusConfig = {
 };
 
 const ViewUploads: React.FC = () => {
+  const navigate = useNavigate();
   const [searchQuery, setSearchQuery] = useState('');
   const [selectedFilter, setSelectedFilter] = useState<string>('All');
 
   const filters = ['All', 'Pending', 'Rated', 'Rejected'];
+
+  const handleCardClick = (uploadId: string) => {
+    navigate(`/upload-details/${uploadId}`);
+  };
 
   const filteredUploads = mockUploads.filter((upload) => {
     const matchesSearch =
@@ -179,7 +185,8 @@ const ViewUploads: React.FC = () => {
                 return (
                   <Card
                     key={upload.id}
-                    className="bg-[#2a2a2a] border-[#3a3a3a] overflow-hidden"
+                    onClick={() => handleCardClick(upload.id)}
+                    className="bg-[#2a2a2a] border-[#3a3a3a] overflow-hidden cursor-pointer hover:border-[#8b5cf6]/50 transition-colors"
                   >
                     <CardContent className="p-0">
                       {/* Image */}
