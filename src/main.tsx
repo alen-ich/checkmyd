@@ -10,6 +10,10 @@ import RaterProfile from "./pages/RaterProfile/RaterProfile";
 import SubmitterProfile from "./pages/SubmitterProfile/SubmitterProfile";
 import ViewUploads from "./pages/ViewUploads/ViewUploads";
 import UploadDetails from "./pages/UploadDetails/UploadDetails";
+import Notifications from "./pages/Notifications/Notifications";
+import ProfileSettings from "./pages/ProfileSettings/ProfileSettings";
+import ForgotPassword from "./pages/ForgotPassword/ForgotPassword";
+import Login from "./pages/Login/Login";
 import "./index.css";
 
 const rootElement = document.getElementById("root");
@@ -22,6 +26,7 @@ ReactDOM.createRoot(rootElement).render(
   <BrowserRouter>
     <Routes>
       <Route path="/" element={<SignUp />} />
+      <Route path="/login" element={<Login />} />
       <Route path="/signup/submitter" element={<SignUpSubmitter />} />
       <Route path="/signup/rater" element={<SignUpRater />} />
       <Route path="/raters" element={<Raters />} />
@@ -31,6 +36,9 @@ ReactDOM.createRoot(rootElement).render(
       <Route path="/submitter-profile" element={<SubmitterProfile />} />
       <Route path="/view-uploads" element={<ViewUploads />} />
       <Route path="/upload-details/:id" element={<UploadDetails />} />
+      <Route path="/notifications" element={<Notifications />} />
+      <Route path="/profile-settings" element={<ProfileSettings />} />
+      <Route path="/forgot-password" element={<ForgotPassword />} />
     </Routes>
   </BrowserRouter>,
 );
