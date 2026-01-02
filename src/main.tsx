@@ -14,6 +14,7 @@ import Notifications from "./pages/Notifications/Notifications";
 import ProfileSettings from "./pages/ProfileSettings/ProfileSettings";
 import ForgotPassword from "./pages/ForgotPassword/ForgotPassword";
 import Login from "./pages/Login/Login";
+import RaterView from "./pages/RaterView/RaterView";
 import "./index.css";
 
 const rootElement = document.getElementById("root");
@@ -39,6 +40,7 @@ ReactDOM.createRoot(rootElement).render(
       <Route path="/notifications" element={<Notifications />} />
       <Route path="/profile-settings" element={<ProfileSettings />} />
       <Route path="/forgot-password" element={<ForgotPassword />} />
+      <Route path="/rater-view" element={<RaterView />} />
     </Routes>
   </BrowserRouter>,
 );
