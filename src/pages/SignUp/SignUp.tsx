@@ -1,9 +1,13 @@
 import React from 'react';
+import { useNavigate } from 'react-router';
+import { Button } from "@/components/ui/button"
+
 
 const SignUp: React.FC = () => {
+  const navigate = useNavigate();
+
   const handleSubmitterClick = () => {
-    console.log('Become a Submitter clicked');
-    // Add navigation or action logic here
+    navigate('/signup/submitter');
   };
 
   const handleRaterClick = () => {
@@ -36,12 +40,9 @@ const SignUp: React.FC = () => {
           <p className="text-white text-base sm:text-sm leading-relaxed m-0">
             Share your photos and get honest ratings and reviews from our community of raters.
           </p>
-          <button
-            className="bg-[#8b5cf6] text-white border-none rounded-lg py-3.5 px-6 text-base font-semibold cursor-pointer transition-all duration-200 ease-in-out mt-auto hover:bg-[#7c3aed] hover:-translate-y-0.5 active:translate-y-0"
-            onClick={handleSubmitterClick}
-          >
+          <Button size="xl" className="bg-[#8b5cf6] text-white text-base hover:bg-[#7c3aed]" onClick={handleSubmitterClick}>
             Become a Submitter
-          </button>
+          </Button>
         </div>
 
         {/* Rater Card */}
@@ -52,12 +53,9 @@ const SignUp: React.FC = () => {
           <p className="text-white text-base sm:text-sm leading-relaxed m-0">
             Lend your discerning eye to photos from others and earn rewards for your valuable feedback.
           </p>
-          <button
-            className="bg-[#8b5cf6] text-white border-none rounded-lg py-3.5 px-6 text-base font-semibold cursor-pointer transition-all duration-200 ease-in-out mt-auto hover:bg-[#7c3aed] hover:-translate-y-0.5 active:translate-y-0"
-            onClick={handleRaterClick}
-          >
-            Become a Rater
-          </button>
+          <Button size="xl" className="bg-[#8b5cf6] text-white text-base hover:bg-[#7c3aed]" onClick={handleRaterClick}>
+          Become a Rater
+          </Button>
         </div>
       </main>
 
