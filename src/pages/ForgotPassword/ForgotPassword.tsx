@@ -1,8 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router';
 import { ArrowLeft, Mail, CheckCircle } from 'lucide-react';
-import Header from '@/components/layout/Header';
-import Footer from '@/components/layout/Footer';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Card, CardContent } from '@/components/ui/card';
@@ -44,10 +42,8 @@ const ForgotPassword: React.FC = () => {
   if (isSubmitted) {
     return (
       <div className="min-h-screen bg-[#1a1a1a] flex flex-col m-0">
-        <Header title="Forgot Password" showBack={true} />
-
-        <main className="flex-1 overflow-y-auto pt-20 pb-24">
-          <div className="px-5 py-6 max-w-[600px] w-full mx-auto flex flex-col gap-6">
+        <main className="flex-1 flex items-center justify-center overflow-y-auto py-6">
+          <div className="px-5 w-full max-w-[600px] flex flex-col gap-6">
             <Card className="bg-[#2a2a2a] border-[#3a3a3a]">
               <CardContent className="p-8 flex flex-col items-center gap-4 text-center">
                 <div className="bg-green-500/20 rounded-full p-4">
@@ -82,18 +78,22 @@ const ForgotPassword: React.FC = () => {
             </Card>
           </div>
         </main>
-
-        <Footer />
       </div>
     );
   }
 
   return (
     <div className="min-h-screen bg-[#1a1a1a] flex flex-col m-0">
-      <Header title="Forgot Password" showBack={true} />
-
-      <main className="flex-1 overflow-y-auto pt-20 pb-24">
-        <div className="px-5 py-6 max-w-[600px] w-full mx-auto flex flex-col gap-6">
+      <main className="flex-1 flex items-center justify-center overflow-y-auto py-6">
+        <div className="px-5 w-full max-w-[600px] flex flex-col gap-6">
+          {/* Back Button */}
+          <button
+            onClick={handleBackToLogin}
+            className="text-white hover:text-[#8b5cf6] transition-colors self-start mb-2"
+            aria-label="Go back"
+          >
+            <ArrowLeft className="h-6 w-6" />
+          </button>
           <Card className="bg-[#2a2a2a] border-[#3a3a3a]">
             <CardContent className="p-6 flex flex-col gap-6">
               <div className="flex flex-col gap-2">
@@ -150,8 +150,6 @@ const ForgotPassword: React.FC = () => {
           </Card>
         </div>
       </main>
-
-      <Footer />
     </div>
   );
 };
