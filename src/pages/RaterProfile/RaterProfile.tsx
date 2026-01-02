@@ -278,9 +278,9 @@ const RaterProfile: React.FC = () => {
             )}
           </div>
 
-          {/* Price per Rating Section */}
+          {/* Price per Photo Section */}
           <div className="flex flex-col gap-4">
-            <h2 className="text-white text-lg font-semibold m-0">Price per Rating</h2>
+            <h2 className="text-white text-lg font-semibold m-0">Price per Photo</h2>
             <div className="flex flex-col gap-3">
               <div className="flex items-center gap-4">
                 <div className="text-white text-3xl font-bold flex-1">

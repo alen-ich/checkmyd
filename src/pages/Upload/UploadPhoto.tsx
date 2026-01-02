@@ -232,7 +232,7 @@ const UploadPhoto: React.FC = () => {
                           </span>
                           <span className="text-white/60 text-xs">•</span>
                           <span className="text-white/80 text-xs">
-                            ${selectedRater.price.toFixed(2)}/rating
+                            ${selectedRater.price.toFixed(2)}/photo
                           </span>
                         </div>
                       </div>
