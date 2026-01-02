@@ -109,8 +109,8 @@ const RaterView: React.FC = () => {
   };
 
   const handleRateNow = (itemId: string) => {
-    // Navigate to rating page or open rating modal
-    navigate(`/upload-details/${itemId}`);
+    // Navigate to rater rating page
+    navigate(`/rater-upload-details/${itemId}`);
   };
 
   const handleDeclineClick = (itemId: string) => {
