@@ -10,6 +10,7 @@ import RaterProfile from "./pages/RaterProfile/RaterProfile";
 import SubmitterProfile from "./pages/SubmitterProfile/SubmitterProfile";
 import ViewUploads from "./pages/ViewUploads/ViewUploads";
 import UploadDetails from "./pages/UploadDetails/UploadDetails";
+import Notifications from "./pages/Notifications/Notifications";
 import "./index.css";
 
 const rootElement = document.getElementById("root");
@@ -31,6 +32,7 @@ ReactDOM.createRoot(rootElement).render(
       <Route path="/submitter-profile" element={<SubmitterProfile />} />
       <Route path="/view-uploads" element={<ViewUploads />} />
       <Route path="/upload-details/:id" element={<UploadDetails />} />
+      <Route path="/notifications" element={<Notifications />} />
     </Routes>
   </BrowserRouter>,
 );

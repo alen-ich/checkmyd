@@ -62,7 +62,7 @@ const Header: React.FC<HeaderProps> = ({
         )}
         {showSettings && (
           <button
-            onClick={onSettingsClick}
+            onClick={onSettingsClick || (() => navigate('/notifications'))}
             className="text-white hover:text-[#8b5cf6] transition-colors"
             aria-label="Settings"
           >

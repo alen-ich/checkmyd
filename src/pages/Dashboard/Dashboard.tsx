@@ -66,8 +66,7 @@ const Dashboard: React.FC = () => {
   };
 
   const handleSettingsClick = () => {
-    console.log('Settings clicked');
-    // Handle settings action
+    navigate('/notifications');
   };
 
   return (
