@@ -187,7 +187,7 @@ const TestPages: React.FC = () => {
                         <Button
                           size="sm"
                           variant="outline"
-                          className="border-[#8b5cf6] text-[#8b5cf6] hover:bg-[#8b5cf6] hover:text-white"
+                          className="bg-white border-[#8b5cf6] text-[#8b5cf6] hover:bg-[#8b5cf6] hover:text-white"
                           onClick={(e) => {
                             e.stopPropagation();
                             handleNavigate(page.path);
