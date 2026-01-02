@@ -5,6 +5,7 @@ import SignUpSubmitter from "./pages/SignUp/SignUpSubmitter";
 import SignUpRater from "./pages/SignUp/SignUpRater";
 import Raters from "./pages/Raters/Raters";
 import UploadPhoto from "./pages/Upload/UploadPhoto";
+import Dashboard from "./pages/Dashboard/Dashboard";
 import "./index.css";
 
 const rootElement = document.getElementById("root");
@@ -21,6 +22,7 @@ ReactDOM.createRoot(rootElement).render(
       <Route path="/signup/rater" element={<SignUpRater />} />
       <Route path="/raters" element={<Raters />} />
       <Route path="/upload" element={<UploadPhoto />} />
+      <Route path="/stats" element={<Dashboard />} />
     </Routes>
   </BrowserRouter>,
 );
