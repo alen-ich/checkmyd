@@ -13,6 +13,7 @@ import UploadDetails from "./pages/UploadDetails/UploadDetails";
 import Notifications from "./pages/Notifications/Notifications";
 import ProfileSettings from "./pages/ProfileSettings/ProfileSettings";
 import ForgotPassword from "./pages/ForgotPassword/ForgotPassword";
+import Login from "./pages/Login/Login";
 import "./index.css";
 
 const rootElement = document.getElementById("root");
@@ -25,6 +26,7 @@ ReactDOM.createRoot(rootElement).render(
   <BrowserRouter>
     <Routes>
       <Route path="/" element={<SignUp />} />
+      <Route path="/login" element={<Login />} />
       <Route path="/signup/submitter" element={<SignUpSubmitter />} />
       <Route path="/signup/rater" element={<SignUpRater />} />
       <Route path="/raters" element={<Raters />} />
