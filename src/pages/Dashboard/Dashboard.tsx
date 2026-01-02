@@ -1,4 +1,5 @@
 import React from 'react';
+import { useNavigate } from 'react-router';
 import { Sparkles, TrendingUp, Star, Handshake, Trophy, User } from 'lucide-react';
 import Header from '@/components/layout/Header';
 import Footer from '@/components/layout/Footer';
@@ -21,6 +22,8 @@ interface LeaderboardEntry {
 }
 
 const Dashboard: React.FC = () => {
+  const navigate = useNavigate();
+
   const recentActivities: RecentActivity[] = [
     { id: '1', date: '2024-07-28', raterName: 'Anonymous Rater X', score: 7.5 },
     { id: '2', date: '2024-07-25', raterName: 'MysticJudge', score: 9.1 },
@@ -75,7 +78,10 @@ const Dashboard: React.FC = () => {
                 </CardContent>
               </Card>
 
-              <Card className="bg-[#2a2a2a] border-[#3a3a3a]">
+              <Card 
+                className="bg-[#2a2a2a] border-[#3a3a3a] cursor-pointer hover:border-[#8b5cf6]/50 transition-colors"
+                onClick={() => navigate('/view-uploads')}
+              >
                 <CardContent className="p-4">
                   <div className="flex items-start justify-between mb-2">
                     <div className="flex flex-col gap-1">
@@ -87,6 +93,15 @@ const Dashboard: React.FC = () => {
                   </div>
                   <p className="text-[#8b5cf6] text-3xl font-bold m-0">45</p>
                   <p className="text-white/60 text-xs mt-1 m-0">total photos sent</p>
+                  <button
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      navigate('/view-uploads');
+                    }}
+                    className="text-[#8b5cf6] text-xs font-medium mt-2 hover:text-[#7c3aed] transition-colors"
+                  >
+                    View all uploads →
+                  </button>
                 </CardContent>
               </Card>
             </div>
