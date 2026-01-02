@@ -1,5 +1,5 @@
 import React from 'react';
-import { ArrowLeft, Search, Filter } from 'lucide-react';
+import { ArrowLeft, Search, Filter, Settings } from 'lucide-react';
 import { useNavigate } from 'react-router';
 
 interface HeaderProps {
@@ -7,8 +7,10 @@ interface HeaderProps {
   showBack?: boolean;
   showSearch?: boolean;
   showFilter?: boolean;
+  showSettings?: boolean;
   onSearchClick?: () => void;
   onFilterClick?: () => void;
+  onSettingsClick?: () => void;
 }
 
 const Header: React.FC<HeaderProps> = ({
@@ -16,8 +18,10 @@ const Header: React.FC<HeaderProps> = ({
   showBack = false,
   showSearch = false,
   showFilter = false,
+  showSettings = false,
   onSearchClick,
   onFilterClick,
+  onSettingsClick,
 }) => {
   const navigate = useNavigate();
 
@@ -54,6 +58,15 @@ const Header: React.FC<HeaderProps> = ({
             aria-label="Filter"
           >
             <Filter className="h-6 w-6" />
+          </button>
+        )}
+        {showSettings && (
+          <button
+            onClick={onSettingsClick}
+            className="text-white hover:text-[#8b5cf6] transition-colors"
+            aria-label="Settings"
+          >
+            <Settings className="h-6 w-6" />
           </button>
         )}
       </div>
