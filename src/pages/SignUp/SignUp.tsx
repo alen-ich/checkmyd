@@ -1,11 +1,13 @@
 import React from 'react';
+import { useNavigate } from 'react-router';
 import { Button } from "@/components/ui/button"
 
 
 const SignUp: React.FC = () => {
+  const navigate = useNavigate();
+
   const handleSubmitterClick = () => {
-    console.log('Become a Submitter clicked');
-    // Add navigation or action logic here
+    navigate('/signup/submitter');
   };
 
   const handleRaterClick = () => {
