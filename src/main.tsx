@@ -8,6 +8,8 @@ import UploadPhoto from "./pages/Upload/UploadPhoto";
 import Dashboard from "./pages/Dashboard/Dashboard";
 import RaterProfile from "./pages/RaterProfile/RaterProfile";
 import SubmitterProfile from "./pages/SubmitterProfile/SubmitterProfile";
+import ViewUploads from "./pages/ViewUploads/ViewUploads";
+import UploadDetails from "./pages/UploadDetails/UploadDetails";
 import "./index.css";
 
 const rootElement = document.getElementById("root");
@@ -27,6 +29,8 @@ ReactDOM.createRoot(rootElement).render(
       <Route path="/stats" element={<Dashboard />} />
       <Route path="/rater-profile" element={<RaterProfile />} />
       <Route path="/submitter-profile" element={<SubmitterProfile />} />
+      <Route path="/view-uploads" element={<ViewUploads />} />
+      <Route path="/upload-details/:id" element={<UploadDetails />} />
     </Routes>
   </BrowserRouter>,
 );

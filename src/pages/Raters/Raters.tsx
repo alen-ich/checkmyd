@@ -181,7 +181,7 @@ const Raters: React.FC = () => {
                           Approval Rate: <span className="font-medium">{rater.approvalRate}%</span>
                         </p>
                         <p className="text-[#8b5cf6] text-sm font-semibold m-0">
-                          ${rater.price.toFixed(2)} / rating
+                          ${rater.price.toFixed(2)} / photo
                         </p>
                       </div>
                     </div>
