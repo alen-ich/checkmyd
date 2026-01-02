@@ -11,8 +11,7 @@ const SignUp: React.FC = () => {
   };
 
   const handleRaterClick = () => {
-    console.log('Become a Rater clicked');
-    // Add navigation or action logic here
+    navigate('/signup/rater');
   };
 
   const handleTermsClick = (e: React.MouseEvent<HTMLAnchorElement>) => {

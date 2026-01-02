@@ -2,6 +2,7 @@ import ReactDOM from "react-dom/client";
 import { BrowserRouter, Routes, Route } from "react-router";
 import SignUp from "./pages/SignUp/SignUp";
 import SignUpSubmitter from "./pages/SignUp/SignUpSubmitter";
+import SignUpRater from "./pages/SignUp/SignUpRater";
 import "./index.css";
 
 const rootElement = document.getElementById("root");
@@ -15,6 +16,7 @@ ReactDOM.createRoot(rootElement).render(
     <Routes>
       <Route path="/" element={<SignUp />} />
       <Route path="/signup/submitter" element={<SignUpSubmitter />} />
+      <Route path="/signup/rater" element={<SignUpRater />} />
     </Routes>
   </BrowserRouter>,
 );
