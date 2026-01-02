@@ -12,6 +12,7 @@ import ViewUploads from "./pages/ViewUploads/ViewUploads";
 import UploadDetails from "./pages/UploadDetails/UploadDetails";
 import Notifications from "./pages/Notifications/Notifications";
 import ProfileSettings from "./pages/ProfileSettings/ProfileSettings";
+import ForgotPassword from "./pages/ForgotPassword/ForgotPassword";
 import "./index.css";
 
 const rootElement = document.getElementById("root");
@@ -35,6 +36,7 @@ ReactDOM.createRoot(rootElement).render(
       <Route path="/upload-details/:id" element={<UploadDetails />} />
       <Route path="/notifications" element={<Notifications />} />
       <Route path="/profile-settings" element={<ProfileSettings />} />
+      <Route path="/forgot-password" element={<ForgotPassword />} />
     </Routes>
   </BrowserRouter>,
 );

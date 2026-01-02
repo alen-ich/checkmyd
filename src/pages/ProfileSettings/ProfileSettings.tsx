@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router';
 import { Mail, Lock, Eye, EyeOff } from 'lucide-react';
 import Header from '@/components/layout/Header';
 import Footer from '@/components/layout/Footer';
@@ -7,6 +8,7 @@ import { Input } from '@/components/ui/input';
 import { Card, CardContent } from '@/components/ui/card';
 
 const ProfileSettings: React.FC = () => {
+  const navigate = useNavigate();
   const [currentEmail, setCurrentEmail] = useState('user@example.com');
   const [newEmail, setNewEmail] = useState('');
   const [currentPassword, setCurrentPassword] = useState('');
@@ -148,7 +150,15 @@ const ProfileSettings: React.FC = () => {
           {/* Change Password Section */}
           <Card className="bg-[#2a2a2a] border-[#3a3a3a]">
             <CardContent className="p-6 flex flex-col gap-4">
-              <h2 className="text-white text-lg font-semibold m-0">Change Password</h2>
+              <div className="flex items-center justify-between">
+                <h2 className="text-white text-lg font-semibold m-0">Change Password</h2>
+                <button
+                  onClick={() => navigate('/forgot-password')}
+                  className="text-[#8b5cf6] text-sm font-medium hover:text-[#7c3aed] transition-colors"
+                >
+                  Forgot Password?
+                </button>
+              </div>
               
               {/* Current Password */}
               <div className="flex flex-col gap-2">
