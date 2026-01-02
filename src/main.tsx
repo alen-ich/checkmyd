@@ -26,10 +26,10 @@ if (!rootElement) {
 }
 
 ReactDOM.createRoot(rootElement).render(
-  <BrowserRouter basename="`/${process.env.PUBLIC_URL}`">
+  <BrowserRouter>
     <Routes>
       <Route path="/test-pages" element={<TestPages />} />
-      <Route path="" element={<SignUp />} />
+      <Route path="/" element={<SignUp />} />
       <Route path="/login" element={<Login />} />
       <Route path="/signup/submitter" element={<SignUpSubmitter />} />
       <Route path="/signup/rater" element={<SignUpRater />} />
