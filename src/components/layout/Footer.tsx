@@ -13,10 +13,10 @@ const Footer: React.FC = () => {
   const location = useLocation();
 
   const footerItems: FooterItem[] = [
-    { label: 'Catalog', icon: <LayoutGrid className="h-5 w-5" />, path: '/catalog' },
+    { label: 'Catalog', icon: <LayoutGrid className="h-5 w-5" />, path: '/raters' },
     { label: 'Upload', icon: <Upload className="h-5 w-5" />, path: '/upload' },
     { label: 'My Stats', icon: <BarChart3 className="h-5 w-5" />, path: '/stats' },
-    { label: 'Rater View', icon: <Users className="h-5 w-5" />, path: '/raters' },
+    { label: 'Rater View', icon: <Users className="h-5 w-5" />, path: '/rater-view' },
     { label: 'Profile', icon: <User className="h-5 w-5" />, path: '/profile' },
   ];
 
