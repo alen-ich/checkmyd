@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { ArrowLeft, Share2, Copy, Star, Lightbulb, Image as ImageIcon, Sparkles } from 'lucide-react';
+import { ArrowLeft, Share2, Copy, Star, Lightbulb, Image as ImageIcon, XCircle, AlertTriangle } from 'lucide-react';
 import { useNavigate, useParams } from 'react-router';
 import Header from '@/components/layout/Header';
 import Footer from '@/components/layout/Footer';
@@ -16,7 +16,19 @@ interface Badge {
 }
 
 // Mock upload data - in real app, this would come from an API
-const mockUploads: Record<string, any> = {
+const mockUploads: Record<string, {
+  id: string;
+  status: 'pending' | 'rated' | 'rejected';
+  price?: number;
+  platformCommission?: number;
+  total?: number;
+  ratingScore?: number;
+  feedbackText?: string;
+  detailedFeedback?: string;
+  raterName?: string;
+  rejectedAt?: string;
+  rejectionReason?: string;
+}> = {
   '1': {
     id: '1',
     status: 'rated',
@@ -40,6 +52,15 @@ const mockUploads: Record<string, any> = {
     platformCommission: 2.0,
     total: 8.0,
   },
+  '5': {
+    id: '5',
+    status: 'rejected',
+    price: 10.0,
+    platformCommission: 2.0,
+    total: 8.0,
+    rejectedAt: '2024-01-12T20:10:00',
+    rejectionReason: 'This upload was rejected because it does not meet our community guidelines. Please review our content policy and try again with appropriate content.',
+  },
 };
 
 const UploadDetails: React.FC = () => {
@@ -53,6 +74,8 @@ const UploadDetails: React.FC = () => {
   // Get upload data - in real app, fetch from API
   const upload = id ? mockUploads[id] : null;
   const isPending = upload?.status === 'pending';
+  const isRejected = upload?.status === 'rejected';
+  const isRated = upload?.status === 'rated';
 
   const badges: Badge[] = [
     {
@@ -84,7 +107,7 @@ const UploadDetails: React.FC = () => {
   };
 
   const handleShare = () => {
-    if (!upload || isPending) return;
+    if (!upload || !isRated) return;
     if (navigator.share) {
       navigator.share({
         title: 'Rating Result',
@@ -99,7 +122,7 @@ const UploadDetails: React.FC = () => {
   };
 
   const handleCopy = () => {
-    if (!upload || isPending) return;
+    if (!upload || !isRated) return;
     const text = `Rating: ${upload.ratingScore}/10\n${upload.feedbackText}\n\n${upload.detailedFeedback}\n- ${upload.raterName}`;
     navigator.clipboard.writeText(text).then(() => {
       // Could show a toast notification here
@@ -143,9 +166,9 @@ const UploadDetails: React.FC = () => {
           <ArrowLeft className="h-6 w-6" />
         </button>
         <h1 className="text-white text-xl font-semibold m-0 flex-1 text-center">
-          {isPending ? 'Upload Confirmation' : 'Rating Result'}
+          {isPending ? 'Upload Confirmation' : isRejected ? 'Upload Rejected' : 'Rating Result'}
         </h1>
-        {!isPending && (
+        {isRated && (
           <div className="flex items-center gap-3">
             <button
               onClick={handleShare}
@@ -245,6 +268,88 @@ const UploadDetails: React.FC = () => {
               <p className="text-white/60 text-xs m-0 text-center">
                 Full refund issued if canceled before rating begins.
               </p>
+
+              {/* View History Link */}
+              <button
+                onClick={handleViewHistory}
+                className="text-[#8b5cf6] text-sm font-medium hover:text-[#7c3aed] transition-colors"
+              >
+                View history
+              </button>
+            </>
+          ) : isRejected ? (
+            <>
+              {/* Rejected Status Section */}
+              <Card className="bg-red-500/20 border-red-500/50">
+                <CardContent className="p-8 flex flex-col items-center gap-4">
+                  <div className="bg-red-500/30 rounded-full p-4">
+                    <XCircle className="h-8 w-8 text-red-400" />
+                  </div>
+                  <div className="text-red-400 text-5xl font-bold">REJECTED</div>
+                  <p className="text-white/90 text-sm m-0">
+                    Rejected on {upload.rejectedAt ? new Date(upload.rejectedAt).toLocaleDateString('en-US', {
+                      month: 'short',
+                      day: 'numeric',
+                      year: 'numeric',
+                    }) : 'N/A'}
+                  </p>
+                </CardContent>
+              </Card>
+
+              {/* Rejection Reason Section */}
+              <Card className="bg-[#2a2a2a] border-[#3a3a3a]">
+                <CardContent className="p-6 flex flex-col gap-4">
+                  <div className="flex items-start gap-3">
+                    <AlertTriangle className="h-5 w-5 text-red-400 shrink-0 mt-0.5" />
+                    <div className="flex flex-col gap-2 flex-1">
+                      <h2 className="text-white text-lg font-semibold m-0">Rejection Reason</h2>
+                      <p className="text-white/80 text-sm m-0 leading-relaxed">
+                        {upload.rejectionReason || 'This upload was rejected and does not meet our community guidelines.'}
+                      </p>
+                    </div>
+                  </div>
+                </CardContent>
+              </Card>
+
+              {/* Transaction Summary */}
+              <Card className="bg-[#2a2a2a] border-[#3a3a3a]">
+                <CardContent className="p-6 flex flex-col gap-4">
+                  <h2 className="text-white text-lg font-semibold m-0">Transaction Summary</h2>
+                  <div className="flex flex-col gap-3">
+                    <div className="flex items-center justify-between">
+                      <span className="text-white/80 text-sm">Price:</span>
+                      <span className="text-white text-sm">${upload.price?.toFixed(2)}</span>
+                    </div>
+                    <div className="flex items-center justify-between">
+                      <span className="text-white/80 text-sm">Platform Commission:</span>
+                      <span className="text-red-400 text-sm">-${upload.platformCommission?.toFixed(2)}</span>
+                    </div>
+                    <div className="border-t border-[#3a3a3a] pt-3 flex items-center justify-between">
+                      <span className="text-white font-semibold text-base">Refund Amount:</span>
+                      <span className="text-green-400 font-semibold text-base">
+                        ${upload.total?.toFixed(2)}
+                      </span>
+                    </div>
+                  </div>
+                </CardContent>
+              </Card>
+
+              {/* Refund Info */}
+              <Card className="bg-green-500/10 border-green-500/30">
+                <CardContent className="p-4">
+                  <p className="text-green-400 text-sm m-0 text-center">
+                    A full refund has been issued to your account. The refund will appear in your payment method within 3-5 business days.
+                  </p>
+                </CardContent>
+              </Card>
+
+              {/* Action Buttons */}
+              <Button
+                onClick={() => navigate('/upload')}
+                className="bg-[#8b5cf6] text-white hover:bg-[#7c3aed] w-full h-12 text-base font-semibold"
+              >
+                Upload New Photo
+              </Button>
 
               {/* View History Link */}
               <button
